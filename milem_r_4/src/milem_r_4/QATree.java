@@ -15,17 +15,24 @@ import java.io.*;
 
 public class QATree 
 {
-	private node header, conductor;
+	private node header;
 	
 	public QATree(File treeRecord)
 	{		
+		BufferedReader recordReader = null;
+		
 		try
 		{
-			BufferedReader recordReader = new BufferedReader(new FileReader(treeRecord));
+			recordReader = new BufferedReader(new FileReader(treeRecord));
 		}
 		catch(Exception e)
 		{
 			System.out.println("File failed to open.  Staring with an empty tree.");
+		}
+		
+		if(recordReader != null)
+		{
+			this.header = textToNode(recordReader);
 		}
 	}
 	
@@ -33,15 +40,31 @@ public class QATree
 	{
 		if(header != null)
 		{
-			header.print();
+			header.print(); //Starts the recursive printing at the header.
 		}
 	}
 	
 	private node textToNode(BufferedReader recordReader)
 	{
-		node newNode;
+		node newNode = null;
 		
-		//todo: Line reading and value setting.
+		try
+		{
+			newNode = new node(recordReader.readLine().equals("Q:\n"), recordReader.readLine());
+		}
+		catch (Exception e)
+		{
+			System.out.println("No next line? Maybe?");
+		}
+		
+		if(newNode != null)
+		{
+			if(newNode.getIsQuestion())
+			{
+				newNode.setYes(textToNode(recordReader));
+				newNode.setNo(textToNode(recordReader));
+			}
+		}
 		
 		return newNode;
 	}

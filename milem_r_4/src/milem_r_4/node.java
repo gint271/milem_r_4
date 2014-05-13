@@ -16,10 +16,16 @@ public class node
 	private Boolean isQuestion;
 	private node yes, no, parent; //Stores the nodes for if the question is answered "y" or "n".
 	
-	public node(String passData, Boolean passIsQuestion)
+	public node(Boolean passIsQuestion, String passData)
 	{
 		this.data = passData;
 		this.isQuestion = passIsQuestion;
+		
+		if(!this.isQuestion)
+		{
+			this.yes = null;
+			this.no = null;
+		}
 	}
 	
 	public void print()
@@ -48,5 +54,10 @@ public class node
 	public void setParent(node passParent)
 	{
 		this.parent = passParent;
+	}
+	
+	public Boolean getIsQuestion()
+	{
+		return this.isQuestion;
 	}
 }
