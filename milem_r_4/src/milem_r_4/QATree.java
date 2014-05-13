@@ -50,7 +50,7 @@ public class QATree
 		
 		try
 		{
-			newNode = new node(recordReader.readLine().equals("Q:\n"), recordReader.readLine());
+			newNode = new node(recordReader.readLine().equals("Q:"), recordReader.readLine());
 		}
 		catch (Exception e)
 		{
