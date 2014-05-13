@@ -17,13 +17,8 @@ public class QATree
 {
 	private node header, conductor;
 	
-	public QATree()
-	{
-		
-	}
-	
 	public QATree(File treeRecord)
-	{
+	{		
 		try
 		{
 			BufferedReader recordReader = new BufferedReader(new FileReader(treeRecord));
@@ -32,15 +27,22 @@ public class QATree
 		{
 			System.out.println("File failed to open.  Staring with an empty tree.");
 		}
-		
-		//todo: Reading the file and building the tree.
 	}
 	
-	void print()
+	public void print()
 	{
 		if(header != null)
 		{
 			header.print();
 		}
+	}
+	
+	private node textToNode(BufferedReader recordReader)
+	{
+		node newNode;
+		
+		//todo: Line reading and value setting.
+		
+		return newNode;
 	}
 }
