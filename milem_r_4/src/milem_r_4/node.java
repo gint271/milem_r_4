@@ -28,17 +28,22 @@ public class node
 		}
 	}
 	
-	public void print()
+	public void printSubtree()
 	{
 		System.out.println(this.data);
 		if(yes != null)
 		{
-			yes.print();
+			yes.printSubtree();
 		}
 		if(no != null)
 		{
-			no.print();
+			no.printSubtree();
 		}
+	}
+	
+	public String getData()
+	{
+		return this.data;
 	}
 	
 	public void setYes(node passYes)
@@ -59,5 +64,15 @@ public class node
 	public Boolean getIsQuestion()
 	{
 		return this.isQuestion;
+	}
+	
+	public node getYes()
+	{
+		return this.yes;
+	}
+	
+	public node getNo()
+	{
+		return this.no;
 	}
 }

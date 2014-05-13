@@ -15,7 +15,7 @@ import java.io.*;
 
 public class QATree 
 {
-	private node header;
+	private node header, conductor;
 	
 	public QATree(File treeRecord)
 	{		
@@ -33,14 +33,44 @@ public class QATree
 		if(recordReader != null)
 		{
 			this.header = textToNode(recordReader);
+			this.conductor = this.header;
 		}
+	}
+	
+	public void moveYes()
+	{
+		this.conductor = this.conductor.getYes();
+	}
+	
+	public void moveNo()
+	{
+		this.conductor = this.conductor.getNo();
 	}
 	
 	public void print()
 	{
 		if(header != null)
 		{
-			header.print(); //Starts the recursive printing at the header.
+			header.printSubtree(); //Starts the recursive printing at the header.
+		}
+	}
+	
+	public Boolean hasNext()
+	{
+		
+		return conductor.getYes() != null && conductor.getNo() != null;
+	}
+	
+	public void printPrompt()
+	{
+		if(conductor.getIsQuestion())
+		{
+			System.out.println(conductor.getData());
+			
+		}
+		else
+		{
+			System.out.println("Is it a " + conductor.getData() + "?");
 		}
 	}
 	
@@ -68,4 +98,6 @@ public class QATree
 		
 		return newNode;
 	}
+	
+	
 }
