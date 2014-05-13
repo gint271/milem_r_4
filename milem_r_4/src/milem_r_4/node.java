@@ -25,6 +25,14 @@ public class node
 	public void print()
 	{
 		System.out.println(this.data);
+		if(yes != null)
+		{
+			yes.print();
+		}
+		if(no != null)
+		{
+			no.print();
+		}
 	}
 	
 	public void setYes(node passYes)

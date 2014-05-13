@@ -35,4 +35,12 @@ public class QATree
 		
 		//todo: Reading the file and building the tree.
 	}
+	
+	void print()
+	{
+		if(header != null)
+		{
+			header.print();
+		}
+	}
 }
