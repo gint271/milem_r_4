@@ -58,7 +58,7 @@ public class QATree
 	public Boolean hasNext()
 	{
 		
-		return this.conductor != null;
+		return conductor.getYes() != null && conductor.getNo() != null;
 	}
 	
 	public void printPrompt()
@@ -70,7 +70,7 @@ public class QATree
 		}
 		else
 		{
-			System.out.println("Okay.  I think I have it.  Is it a " + conductor.getData() + "?");
+			System.out.println("I think I have it.  Is it a " + conductor.getData() + "?");
 		}
 	}
 	
@@ -92,7 +92,9 @@ public class QATree
 			if(newNode.getIsQuestion())
 			{
 				newNode.setYes(textToNode(recordReader));
+				newNode.getYes().setParent(newNode);
 				newNode.setNo(textToNode(recordReader));
+				newNode.getNo().setParent(newNode);
 			}
 		}
 		
