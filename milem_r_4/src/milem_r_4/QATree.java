@@ -58,7 +58,7 @@ public class QATree
 	public Boolean hasNext()
 	{
 		
-		return conductor.getYes() != null && conductor.getNo() != null;
+		return this.conductor != null;
 	}
 	
 	public void printPrompt()
@@ -70,7 +70,7 @@ public class QATree
 		}
 		else
 		{
-			System.out.println("Is it a " + conductor.getData() + "?");
+			System.out.println("Okay.  I think I have it.  Is it a " + conductor.getData() + "?");
 		}
 	}
 	
