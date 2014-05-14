@@ -79,6 +79,16 @@ public class milemRyanHW4 {
 				return;
 			}
 		}
+		
+		try
+		{
+			keyboard.close();
+		}
+		catch (Exception e)
+		{
+			System.out.println("Failed to close file.");
+		}
+		myTree.save(record);
 	}
 
 }

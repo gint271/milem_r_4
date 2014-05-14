@@ -1,5 +1,8 @@
 package milem_r_4;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+
 /*
  * Author: Ryan Milem
  * 
@@ -38,6 +41,38 @@ public class node
 		if(no != null)
 		{
 			no.printSubtree();
+		}
+	}
+	
+	public void save(BufferedWriter recordWriter)
+	{
+		try
+		{
+			if(this.isQuestion)
+			{
+				recordWriter.write("Q:", 0, "Q:".length());
+				recordWriter.newLine();
+			}
+			else
+			{
+				recordWriter.write("A:", 0, "A:".length());
+				recordWriter.newLine();
+			}
+			recordWriter.write(this.data, 0, this.data.length());
+			recordWriter.newLine();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Failed to write single node's data.");
+			return;
+		}
+		if(yes != null)
+		{
+			yes.save(recordWriter);
+		}
+		if(no != null)
+		{
+			no.save(recordWriter);
 		}
 	}
 	

@@ -37,6 +37,32 @@ public class QATree
 		}
 	}
 	
+	public void save(File record)
+	{
+		BufferedWriter saver;
+		
+		try
+		{
+			saver = new BufferedWriter(new FileWriter(record));
+		}
+		catch(Exception e)
+		{
+			System.out.println("Save unsuccesful.");
+			return;
+		}
+		
+		header.save(saver);
+		
+		try
+		{
+			saver.close();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Failed to close file");
+		}
+	}
+	
 	public void reset()
 	{
 		this.conductor = this.header;
