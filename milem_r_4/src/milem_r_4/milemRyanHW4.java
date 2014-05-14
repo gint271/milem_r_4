@@ -14,54 +14,71 @@ public class milemRyanHW4 {
 		QATree myTree = new QATree(record);
 		String addedNoun;
 		String addedQuestion;
+		String input = "y";
 		
-		while(myTree.hasNext())
+		while(input.equals("y"))
 		{
+			myTree.reset();
+		
+			while(myTree.hasNext())
+			{
+				myTree.printPrompt();
+				try{
+					if(keyboard.readLine().equals("y"))
+					{
+						myTree.moveYes();
+					}
+					else
+					{
+						myTree.moveNo();
+					}
+				}
+				catch(Exception e)
+				{
+					System.out.println("Failed to get answer.");
+					return;
+				}
+			}
+			
 			myTree.printPrompt();
+		
 			try{
 				if(keyboard.readLine().equals("y"))
 				{
-					myTree.moveYes();
+					System.out.println("I win!");
 				}
 				else
 				{
-					myTree.moveNo();
+					System.out.println("Darn");
+					System.out.println("What were you thinking of?");
+					addedNoun = keyboard.readLine();
+					
+					System.out.println("Enter a question for which yes would be the correct noun, and no would be the noun I guessed.");
+					
+					addedQuestion = keyboard.readLine();
+					System.out.println(addedQuestion);
+					
+					myTree.add(addedQuestion, addedNoun);
 				}
 			}
 			catch(Exception e)
 			{
-				System.out.println("Failed to get answer.");
+				System.out.println("Failed to get new questions/noun from console.");
+				return;
+			}
+	
+			System.out.println("Do you want to play again?");
+			
+			try
+			{
+				input = keyboard.readLine();
+			}
+			catch(Exception e)
+			{
+				System.out.println("Failed to read user input.");
 				return;
 			}
 		}
-		
-		myTree.printPrompt();
-	
-		try{
-			if(keyboard.readLine().equals("y"))
-			{
-				System.out.println("I win!");
-			}
-			else
-			{
-				System.out.println("Darn");
-				System.out.println("What were you thinking of?");
-				addedNoun = keyboard.readLine();
-				
-				System.out.println("Enter a question for which yes would be the correct noun, and no would be the noun I guessed.");
-				
-				addedQuestion = keyboard.readLine();
-				System.out.println(addedQuestion);
-				
-				
-			}
-		}
-		catch(Exception e)
-		{
-			System.out.println("Failed to get new questions/noun from console.");
-			return;
-		}
-		
 	}
 
 }

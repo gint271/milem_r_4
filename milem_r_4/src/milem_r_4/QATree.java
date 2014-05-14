@@ -37,6 +37,11 @@ public class QATree
 		}
 	}
 	
+	public void reset()
+	{
+		this.conductor = this.header;
+	}
+	
 	public void moveYes()
 	{
 		this.conductor = this.conductor.getYes();
@@ -74,10 +79,27 @@ public class QATree
 		}
 	}
 	
+	//After guessing wrong, this is used to add to the decision tree.
 	public void add(String newQuestion, String newAnswer)
 	{
-		node newNode = null;
+		node newQuestionNode = new node(true, newQuestion);
+		node newAnswerNode = new node(false, newAnswer);
 		
+		newQuestionNode.setNo(conductor);
+		newQuestionNode.setYes(newAnswerNode);
+		
+		if(conductor.getParent().getYes() == conductor)
+		{
+			conductor.getParent().setYes(newQuestionNode);
+		}
+		else
+		{
+			conductor.getParent().setNo(newQuestionNode);
+		}
+		
+		newQuestionNode.setParent(conductor.getParent());
+		newAnswerNode.setParent(newQuestionNode);
+		conductor.setParent(newQuestionNode);
 		
 	}
 	

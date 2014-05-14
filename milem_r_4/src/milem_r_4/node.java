@@ -66,6 +66,11 @@ public class node
 		return this.isQuestion;
 	}
 	
+	public node getParent()
+	{
+		return this.parent;
+	}
+	
 	public node getYes()
 	{
 		return this.yes;
