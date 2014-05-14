@@ -74,6 +74,13 @@ public class QATree
 		}
 	}
 	
+	public void add(String newQuestion, String newAnswer)
+	{
+		node newNode = null;
+		
+		
+	}
+	
 	private node textToNode(BufferedReader recordReader)
 	{
 		node newNode = null;
