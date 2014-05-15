@@ -1,6 +1,5 @@
 package milem_r_4;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 
 /*
@@ -12,8 +11,6 @@ import java.io.BufferedWriter;
  * 
  * Description: Stores either a question or a guess for the 20 questions game.
  */
-
-//Testing commit as gint271.
 
 public class node 
 {

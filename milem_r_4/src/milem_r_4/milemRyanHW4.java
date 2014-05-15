@@ -9,12 +9,27 @@ public class milemRyanHW4 {
 
 	public static void main(String[] args) 
 	{
-		File record = new File("F:\\record.txt");
+		File record;
 		BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
-		QATree myTree = new QATree(record);
+		QATree myTree;
 		String addedNoun;
 		String addedQuestion;
 		String input = "y";
+	
+		System.out.println("Enter the path of the record to be loaded.");
+		
+		
+		try
+		{
+			record = new File(keyboard.readLine());
+		}
+		catch(Exception e)
+		{
+			System.out.println("Failed to open file.");
+			return;
+		}
+		
+		myTree = new QATree(record);
 		
 		while(input.equals("y"))
 		{
