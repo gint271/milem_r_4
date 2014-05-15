@@ -96,7 +96,7 @@ public class QATree
 	{
 		if(conductor.getIsQuestion())
 		{
-			System.out.println(conductor.getData());
+			System.out.println(conductor.getData() + "?");
 			
 		}
 		else
