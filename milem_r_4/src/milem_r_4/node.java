@@ -33,13 +33,13 @@ public class node
 	public void printSubtree()
 	{
 		System.out.println(this.data);
-		if(yes != null)
+		if(this.yes != null)
 		{
-			yes.printSubtree();
+			this.yes.printSubtree();
 		}
-		if(no != null)
+		if(this.no != null)
 		{
-			no.printSubtree();
+			this.no.printSubtree();
 		}
 	}
 	
@@ -65,13 +65,13 @@ public class node
 			System.out.println("Failed to write single node's data.");
 			return;
 		}
-		if(yes != null)
+		if(this.yes != null)
 		{
-			yes.save(recordWriter);
+			this.yes.save(recordWriter);
 		}
-		if(no != null)
+		if(this.no != null)
 		{
-			no.save(recordWriter);
+			this.no.save(recordWriter);
 		}
 	}
 	

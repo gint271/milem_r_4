@@ -51,7 +51,7 @@ public class QATree
 			return;
 		}
 		
-		header.save(saver);
+		this.header.save(saver);
 		
 		try
 		{
@@ -80,28 +80,28 @@ public class QATree
 	
 	public void print()
 	{
-		if(header != null)
+		if(this.header != null)
 		{
-			header.printSubtree(); //Starts the recursive printing at the header.
+			this.header.printSubtree(); //Starts the recursive printing at the header.
 		}
 	}
 	
 	public Boolean hasNext()
 	{
 		
-		return conductor.getYes() != null && conductor.getNo() != null;
+		return this.conductor.getYes() != null && this.conductor.getNo() != null;
 	}
 	
 	public void printPrompt()
 	{
-		if(conductor.getIsQuestion())
+		if(this.conductor.getIsQuestion())
 		{
-			System.out.println(conductor.getData() + "?");
+			System.out.println(this.conductor.getData() + "?");
 			
 		}
 		else
 		{
-			System.out.println("I think I have it.  Is it a " + conductor.getData() + "?");
+			System.out.println("I think I have it.  Is it a " + this.conductor.getData() + "?");
 		}
 	}
 	
@@ -111,21 +111,21 @@ public class QATree
 		node newQuestionNode = new node(true, newQuestion);
 		node newAnswerNode = new node(false, newAnswer);
 		
-		newQuestionNode.setNo(conductor);
+		newQuestionNode.setNo(this.conductor);
 		newQuestionNode.setYes(newAnswerNode);
 		
-		if(conductor.getParent().getYes() == conductor)
+		if(this.conductor.getParent().getYes() == this.conductor)
 		{
-			conductor.getParent().setYes(newQuestionNode);
+			this.conductor.getParent().setYes(newQuestionNode);
 		}
 		else
 		{
-			conductor.getParent().setNo(newQuestionNode);
+			this.conductor.getParent().setNo(newQuestionNode);
 		}
 		
-		newQuestionNode.setParent(conductor.getParent());
+		newQuestionNode.setParent(this.conductor.getParent());
 		newAnswerNode.setParent(newQuestionNode);
-		conductor.setParent(newQuestionNode);
+		this.conductor.setParent(newQuestionNode);
 		
 	}
 	
