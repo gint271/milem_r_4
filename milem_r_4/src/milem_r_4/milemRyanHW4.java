@@ -29,7 +29,15 @@ public class milemRyanHW4 {
 			return;
 		}
 		
-		myTree = new QATree(record);
+		if(record.canRead() && record.canWrite())
+		{
+			myTree = new QATree(record);
+		}
+		else
+		{
+			System.out.println("Can't read or can't write file.");
+			return;
+		}
 		
 		while(input.equals("y"))
 		{
