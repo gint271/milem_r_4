@@ -53,7 +53,8 @@ public class BufferedAnswerReader extends BufferedReader
 		}
 		
 		//Removes the ? from the end of the entered question.
-		if(question.charAt(question.length()) == '?')
+		System.out.println(question.charAt(question.length() - 1));
+		if(question.charAt(question.length() - 1) == '?')
 		{
 			question = question.substring(1);
 		}
