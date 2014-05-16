@@ -7,8 +7,11 @@ import java.util.Scanner;
 
 public class milemRyanHW4 {
 
+<<<<<<< HEAD
 	//Test change to see if I broke things.
 	
+=======
+>>>>>>> branch 'master' of https://github.com/gint271/milem_r_4.git
 	public static void main(String[] args) 
 	{
 		File record;
