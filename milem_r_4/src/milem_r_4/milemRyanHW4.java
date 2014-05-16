@@ -79,7 +79,7 @@ public class milemRyanHW4 {
 					
 					System.out.println("Enter a question for which yes would be the correct noun, and no would be the noun I guessed.");
 					
-					addedQuestion = keyboard.readLine();
+					addedQuestion = keyboard.readQuestion();
 					System.out.println(addedQuestion);
 					
 					myTree.add(addedQuestion, addedNoun);

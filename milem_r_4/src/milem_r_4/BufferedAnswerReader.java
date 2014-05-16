@@ -38,4 +38,32 @@ public class BufferedAnswerReader extends BufferedReader
 			}
 		
 	}
+	
+	String readQuestion()
+	{
+		String question = "initial";
+		
+		try
+		{
+			question = readLine();
+		}
+		catch (Exception e)
+		{
+			System.out.println("Failed to read new question.");
+		}
+		
+		//Removes the ? from the end of the entered question.
+		if(question.charAt(question.length()) == '?')
+		{
+			question = question.substring(1);
+		}
+		
+		//Makes the first letter of the question capital.
+		if(question.charAt(0) < 91)
+		{
+			question = (question.charAt(0) - 32) + question.substring(1);
+		}
+		
+		return question;
+	}
 }
