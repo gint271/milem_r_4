@@ -10,12 +10,13 @@ public class milemRyanHW4 {
 	public static void main(String[] args) 
 	{
 		File record;
-		BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));
+		BufferedAnswerReader keyboard = new BufferedAnswerReader(new InputStreamReader(System.in));
 		QATree myTree;
 		String addedNoun;
 		String addedQuestion;
 		String input = "y";
 	
+		System.out.println("WARNING: will add tabs to format the save file.");
 		System.out.println("Enter the path of the record to be loaded.");
 		
 		
@@ -47,7 +48,7 @@ public class milemRyanHW4 {
 			{
 				myTree.printPrompt();
 				try{
-					if(keyboard.readLine().equals("y"))
+					if(keyboard.getsYes())
 					{
 						myTree.moveYes();
 					}
@@ -66,7 +67,7 @@ public class milemRyanHW4 {
 			myTree.printPrompt();
 		
 			try{
-				if(keyboard.readLine().equals("y"))
+				if(keyboard.getsYes())
 				{
 					System.out.println("I win!");
 				}
