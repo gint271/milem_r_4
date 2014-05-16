@@ -19,11 +19,11 @@ public class QATree
 	
 	public QATree(File treeRecord)
 	{		
-		BufferedReader recordReader = null;
+		BufferedRecordReader recordReader = null;
 		
 		try
 		{
-			recordReader = new BufferedReader(new FileReader(treeRecord));
+			recordReader = new BufferedRecordReader(new FileReader(treeRecord));
 		}
 		catch(Exception e)
 		{
@@ -129,13 +129,13 @@ public class QATree
 		
 	}
 	
-	private node textToNode(BufferedReader recordReader)
+	private node textToNode(BufferedRecordReader recordReader)
 	{
 		node newNode = null;
 		
 		try
 		{
-			newNode = new node(recordReader.readLine().equals("Q:"), recordReader.readLine());
+			newNode = new node(recordReader.readTrimmed().equals("Q:"), recordReader.readTrimmed());
 		}
 		catch (Exception e)
 		{
