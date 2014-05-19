@@ -115,20 +115,10 @@ public class milemRyanHW4 {
 		{
 			keyboard.close();
 		}
-		catch (Exception e)
+		catch (Exception f)
 		{
 			System.out.println("Failed to close file.");
 		}
 		myTree.save(record);
-		try
-		{
-			keyboard.close();
-		}
-		catch(Exception e)
-		{
-			System.out.println("Failed to close keyboard reader.");
-			return;
-		}
 	}
-
 }
