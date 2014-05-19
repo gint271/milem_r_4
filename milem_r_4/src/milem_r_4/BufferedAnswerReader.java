@@ -53,17 +53,16 @@ public class BufferedAnswerReader extends BufferedReader
 		}
 		
 		//Removes the ? from the end of the entered question.
-		System.out.println(question.charAt(question.length() - 1));
-		if(question.charAt(question.length() - 1) == '?')
+		//System.out.println(question.charAt(question.length() - 1));
+		if(question.substring(question.length() - 1).equals("?"))
 		{
-			question = question.substring(1);
+			question = question.substring(0, question.length() - 1);
 		}
 		
-		//Makes the first letter of the question capital.
-		if(question.charAt(0) < 91)
-		{
-			question = (question.charAt(0) - 32) + question.substring(1);
-		}
+		//Ensures that the question starts with a capital letter.
+		question = question.substring(0,1).toUpperCase() + question.substring(1);
+		
+		System.out.println(question);
 		
 		return question;
 	}

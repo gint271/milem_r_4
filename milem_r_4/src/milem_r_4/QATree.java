@@ -51,7 +51,7 @@ public class QATree
 			return;
 		}
 		
-		this.header.save(saver, 0);
+		this.header.save(saver);
 		
 		try
 		{

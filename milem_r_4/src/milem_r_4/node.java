@@ -43,15 +43,10 @@ public class node
 		}
 	}
 	
-	public void save(BufferedWriter recordWriter, int tabs)
+	public void save(BufferedWriter recordWriter)
 	{
 		try
 		{
-			for(int i = 0; i<tabs; i++)
-			{
-				recordWriter.write("\t", 0, "\t".length());
-			}
-			
 			if(this.isQuestion)
 			{
 				recordWriter.write("Q:", 0, "Q:".length());
@@ -63,11 +58,6 @@ public class node
 				recordWriter.write("A:", 0, "A:".length());
 				recordWriter.newLine();
 			}
-			
-			for(int i = 0; i<tabs; i++)
-			{
-				recordWriter.write("\t", 0, "\t".length());
-			}
 			recordWriter.write(this.data, 0, this.data.length());
 			recordWriter.newLine();
 		}
@@ -78,11 +68,11 @@ public class node
 		}
 		if(this.yes != null)
 		{
-			this.yes.save(recordWriter, tabs+1);
+			this.yes.save(recordWriter);
 		}
 		if(this.no != null)
 		{
-			this.no.save(recordWriter, tabs+1);
+			this.no.save(recordWriter);
 		}
 	}
 	
