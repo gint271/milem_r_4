@@ -1,3 +1,13 @@
+/*
+ * Author: Ryan Milem
+ * 
+ * Programming Assignment 4
+ * 
+ * Date: 5/19/2014
+ * 
+ * Handles overall interaction between the user's commands and the various classes for the "20 Questions" game.
+ */
+
 package milem_r_4;
 
 import java.io.BufferedReader;
@@ -9,16 +19,14 @@ public class milemRyanHW4 {
 
 	public static void main(String[] args) 
 	{
-		File record;
+		File record; //The file in which the answers and questions for the game is saved.
 		BufferedAnswerReader keyboard = new BufferedAnswerReader(new InputStreamReader(System.in));
 		QATree myTree;
 		String addedNoun;
 		String addedQuestion;
-		String input = "y";
+		String input = "y"; //Stores the string the user just typed in.  Mainly used for looping the game.
 	
-		System.out.println("WARNING: will add tabs to format the save file.");
 		System.out.println("Enter the path of the record to be loaded.");
-		
 		
 		try
 		{
@@ -42,11 +50,13 @@ public class milemRyanHW4 {
 		
 		while(input.equals("y"))
 		{
+			//Revert back to the top of the tree.
 			myTree.reset();
 		
+			//Loops until the bottom of the tree is reached.
 			while(myTree.hasNext())
 			{
-				myTree.printPrompt();
+				myTree.printPrompt(); //Asks the node's question.
 				try{
 					if(keyboard.getsYes())
 					{
@@ -64,7 +74,7 @@ public class milemRyanHW4 {
 				}
 			}
 			
-			myTree.printPrompt();
+			myTree.printPrompt(); //Prints the node's guess.
 		
 			try{
 				if(keyboard.getsYes())
@@ -80,9 +90,8 @@ public class milemRyanHW4 {
 					System.out.println("Enter a question for which yes would be the correct noun, and no would be the noun I guessed.");
 					
 					addedQuestion = keyboard.readQuestion();
-					//System.out.println(addedQuestion);
 					
-					myTree.add(addedQuestion, addedNoun);
+					myTree.add(addedQuestion, addedNoun); //Adds the new question an noun to the tree.
 				}
 			}
 			catch(Exception e)

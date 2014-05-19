@@ -30,6 +30,7 @@ public class node
 		}
 	}
 	
+	//Recursis to print current node and its entire subtrees.
 	public void printSubtree()
 	{
 		System.out.println(this.data);
@@ -43,6 +44,7 @@ public class node
 		}
 	}
 	
+	//Similar to printSubtree, but adds in printing Q: and A: lines for the save file.
 	public void save(BufferedWriter recordWriter)
 	{
 		try
