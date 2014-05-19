@@ -32,11 +32,12 @@ public class QATree
 		
 		if(recordReader != null)
 		{
-			this.header = textToNode(recordReader);
+			this.header = textToNode(recordReader);  //Loads the file into the tree.
 			this.conductor = this.header;
 		}
 	}
 	
+	//Writes the tree to the given file.
 	public void save(File record)
 	{
 		BufferedWriter saver;
@@ -63,6 +64,7 @@ public class QATree
 		}
 	}
 	
+	//Used to prepare for new game of questions.
 	public void reset()
 	{
 		this.conductor = this.header;
@@ -78,6 +80,7 @@ public class QATree
 		this.conductor = this.conductor.getNo();
 	}
 	
+	//Prints the entire tree in the console.
 	public void print()
 	{
 		if(this.header != null)
@@ -86,12 +89,13 @@ public class QATree
 		}
 	}
 	
+	//Checks to see if conductor is on an answer node.
 	public Boolean hasNext()
 	{
-		
 		return this.conductor.getYes() != null && this.conductor.getNo() != null;
 	}
 	
+	//Prints either the program's guess or question to the console.
 	public void printPrompt()
 	{
 		if(this.conductor.getIsQuestion())
@@ -126,9 +130,9 @@ public class QATree
 		newQuestionNode.setParent(this.conductor.getParent());
 		newAnswerNode.setParent(newQuestionNode);
 		this.conductor.setParent(newQuestionNode);
-		
 	}
 	
+	//Used to load tree from file.
 	private node textToNode(BufferedRecordReader recordReader)
 	{
 		node newNode = null;
@@ -155,6 +159,4 @@ public class QATree
 		
 		return newNode;
 	}
-	
-	
 }
